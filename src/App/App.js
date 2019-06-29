@@ -1,11 +1,24 @@
 import React from 'react';
+import StaffRoom from '../Components/StaffRoom/StaffRoom';
+import myStaff from './staff';
 import './App.scss';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 class App extends React.Component {
-  render(){
+  state = {
+    staffPeople:[], 
+  }
+
+  componentDidMount(){
+    this.setState({staffPeople: myStaff})
+  }
+
+  render() {
+    const { staffPeople } = this.state;
     return (
       <div className="App">
-        <h1>This is a test</h1>
+        <StaffRoom staffPeople={staffPeople} />
       </div>
     );
   }
