@@ -1,5 +1,5 @@
 import React from 'react';
-import staffShape from '../helpers/propz/staffShape';
+import staffShape from '../../helpers/propz/staffShape';
 
 import './Staff.scss';
 
