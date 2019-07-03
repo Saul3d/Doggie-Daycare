@@ -14,7 +14,7 @@ class Staff extends React.Component {
     return(
         <div className="staff col-3">
           <div className="card">
-            <img src={staff.imageUrl} className="card-img-top" alt="..." />
+            <img src={staff.imageUrl} className="card-img-top" title={staff.name} alt={"image of " + staff.name} />
             <div className="card-body">
               <h3 className="card-title">{staff.name}</h3>
               <p className="card-text">Age: {staff.age}</p>

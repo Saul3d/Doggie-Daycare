@@ -1,5 +1,6 @@
   
 {
-	"dogs": "moo",
-	"staff": "cow"
+	"dog": "moo",
+	"staff": "cow",
+	"walks": "Baaa"
 }
