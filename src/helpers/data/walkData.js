@@ -3,17 +3,17 @@ import firebaseConfig from '../apiKeys.json';
 
 const baseUrl = firebaseConfig.firebaseKeys.databaseURL;
 
-const getMyStaff = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/staff.json`)
+const getMyWalks = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/walks.json`)
     .then((res) => {
-      const staff = [];
+      const walk = [];
       Object.keys(res.data).forEach((fbKey) => {
         res.data[fbKey].id = fbKey;
-        staff.push(res.data[fbKey]);
+        walk.push(res.data[fbKey]);
       });
-      resolve(staff);
+      resolve(walk);
     })
     .catch(err => reject(err));
 });
 
-export default { getMyStaff };
+export default { getMyWalks };

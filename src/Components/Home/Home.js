@@ -1,33 +1,54 @@
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 
 import StaffRoom from '../StaffRoom/StaffRoom';
+import DogPen from '../DogPen/DogPen';
+import Walk from '../Walk/Walk';
 import staffData from '../../helpers/data/staffData';
+import dogData from '../../helpers/data/dogData';
+import walkData from '../../helpers/data/walkData';
+
+
 import './Home.scss';
 
 class Home extends React.Component {
   state = {
     staff: [],
-    dogs: [], 
+    dog: [],
+    walk: [],
   }
 
-  getStaff = () => {
-    staffData.getMyStaff(firebase.auth().currentUser.uid)
-      .then(staff => this.setState({ staff }))
-      .catch(err => console.error('cant get orders', err));
-  }
   componentDidMount() {
     staffData.getMyStaff()
       .then(staff => this.setState({ staff }))
-      .catch(err => console.error('Could not get fishes', err));
+      .catch(err => console.error('Could not get staff', err));
 
-    this.getStaff();
+    dogData.getMyDogs()
+      .then(dog => this.setState({ dog }))
+      .catch(err => console.error('Could not get staff', err));
+
+    walkData.getMyWalks()
+      .then(walk => this.setState({ walk }))
+      .catch(err => console.error('Could not get walks', err));
   }
+
+  makeWalk = () => (this.state.walk.map(singleWalk => (
+        <Walk key={singleWalk.id} walk={singleWalk} />)));
+
   render() {
-    const { staff } = this.state;
-    return (  
-      <StaffRoom staff={staff} />
+    const { staff, dog, walk } = this.state;
+    // const { walk } = this.props;
+    console.error('help ', walk);
+    return (
+      <div>
+        <h1>Dogs</h1>
+        <DogPen dog={dog} />
+        <h1>Staff</h1>
+        <StaffRoom staff={staff} />
+        <h1>Walks</h1>
+        <div className="walk-container">
+          {this.makeWalk()}
+        </div>
+      </div>
     );
   }
 }

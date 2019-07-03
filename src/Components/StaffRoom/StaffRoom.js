@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import staffShape from '../../helpers/propz/staffShape';
+import Staff from '../Staff/Staff';
 
 import './StaffRoom.scss';
-import Staff from '../Staff/Staff';
 
 class StaffRoom extends React.Component{
   static propTypes = {
@@ -12,7 +12,6 @@ class StaffRoom extends React.Component{
   }
   render(){
     const { staff } = this.props;
-    console.error('saul', staff);
     const makeStaff = staff.map(staffPerson =>(
       <Staff key={staffPerson.id} staff={staffPerson} />
     ));
