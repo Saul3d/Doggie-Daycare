@@ -56,7 +56,7 @@ class Home extends React.Component {
         <h1>Staff</h1>
         <StaffRoom staff={staff} />
         <h1>Walks</h1>
-       <WalkSchedule walk={walk} dog={dog} staff={staff} deleteWalk={this.deleteWalk} />
+       <WalkSchedule walks={walk} dogs={dog} staffs={staff} deleteWalks={this.deleteWalk} />
       </div>
     );
   }
