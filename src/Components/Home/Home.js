@@ -3,12 +3,10 @@ import React from 'react';
 import StaffRoom from '../StaffRoom/StaffRoom';
 import DogPen from '../DogPen/DogPen';
 import WalkSchedule from '../WalkSchedule/WalkSchedule';
-// import Walk from '../Walk/Walk';
+
 import staffData from '../../helpers/data/staffData';
 import dogData from '../../helpers/data/dogData';
 import walkData from '../../helpers/data/walkData';
-
-
 
 import './Home.scss';
 
@@ -26,20 +24,31 @@ class Home extends React.Component {
 
     dogData.getMyDogs()
       .then(dog => this.setState({ dog }))
-      .catch(err => console.error('Could not get staff', err));
+      .catch(err => console.error('Could not get dogs', err));
 
     walkData.getMyWalks()
       .then(walk => this.setState({ walk }))
       .catch(err => console.error('Could not get walks', err));
   }
 
-  // makeWalk = () => (this.state.walk.map(singleWalk => (
-  //       <Walk key={singleWalk.id} walk={singleWalk} />)));
+  deleteWalk = (walkId) => {
+    walkData.deleteWalk(walkId)
+      .then(() => this.getMywalks())
+      .catch(err => console.error('unable to delete', err));
+  }
 
   render() {
     const { staff, dog, walk } = this.state;
-    // const { walk } = this.props;
-    console.error('help ', walk);
+    // const makeWalkScheduleCard = this.state.walk.map((schedule, index) => (
+
+    //   <WalkSchedule
+    //   key={schedule.id}
+    //   dogName={dog.dogName}
+    //   walk={walk}
+    //   staffName = {staff.Name}
+    //   />
+    // ));
+
     return (
       <div>
         <h1>Dogs</h1>
@@ -47,11 +56,8 @@ class Home extends React.Component {
         <h1>Staff</h1>
         <StaffRoom staff={staff} />
         <h1>Walks</h1>
-        {/* <div className="walk-container d-flex flex-wrap">
-          {this.makeWalk()} */}
-          <WalkSchedule dog={dog} staff={staff} walk={walk} />
-        </div>
-    // </div>
+       <WalkSchedule walk={walk} dog={dog} staff={staff} deleteWalk={this.deleteWalk} />
+      </div>
     );
   }
 }
