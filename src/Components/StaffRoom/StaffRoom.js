@@ -6,16 +6,17 @@ import Staff from '../Staff/Staff';
 
 import './StaffRoom.scss';
 
-class StaffRoom extends React.Component{
+class StaffRoom extends React.Component {
   static propTypes = {
     staffRoomShape: PropTypes.arrayOf(staffShape.staffShape),
   }
-  render(){
+
+  render() {
     const { staff } = this.props;
     const makeStaff = staff.map(staffPerson =>(
       <Staff key={staffPerson.id} staff={staffPerson} />
     ));
-   
+
     return (
       <div className="staffRoom d-flex flex-wrap">
         { makeStaff }

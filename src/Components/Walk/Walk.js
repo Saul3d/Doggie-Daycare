@@ -9,13 +9,20 @@ class Walk extends React.Component {
     walkShape: walkShape.walkShape,
   }
 
+  deleteMe = (e) => {
+    e.preventDefault();
+    const { walk, deleteWalk } = this.props;
+    deleteWalk(walk.id);
+  };
+
   render() {
-    const { walk } = this.props;
+    const { walk, dog, staff } = this.props;
     return (
       <div className="walk col-3">
         <div className="card">
           <div className="card-body">
             <h3 className="card-title">{walk.dogId}</h3>
+            <button onClick={this.deleteMe} className="btn btn-danger">Delete</button>
           </div>
         </div>
       </div>
