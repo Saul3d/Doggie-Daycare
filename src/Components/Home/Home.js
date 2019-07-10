@@ -12,22 +12,22 @@ import './Home.scss';
 
 class Home extends React.Component {
   state = {
-    staff: [],
-    dog: [],
-    walk: [],
+    staffs: [],
+    dogs: [],
+    walks: [],
   }
 
   componentDidMount() {
     staffData.getMyStaff()
-      .then(staff => this.setState({ staff }))
+      .then(staffs => this.setState({ staffs }))
       .catch(err => console.error('Could not get staff', err));
 
     dogData.getMyDogs()
-      .then(dog => this.setState({ dog }))
+      .then(dogs => this.setState({ dogs }))
       .catch(err => console.error('Could not get dogs', err));
 
     walkData.getMyWalks()
-      .then(walk => this.setState({ walk }))
+      .then(walks => this.setState({ walks }))
       .catch(err => console.error('Could not get walks', err));
   }
 
@@ -38,25 +38,16 @@ class Home extends React.Component {
   }
 
   render() {
-    const { staff, dog, walk } = this.state;
-    // const makeWalkScheduleCard = this.state.walk.map((schedule, index) => (
-
-    //   <WalkSchedule
-    //   key={schedule.id}
-    //   dogName={dog.dogName}
-    //   walk={walk}
-    //   staffName = {staff.Name}
-    //   />
-    // ));
+    const { staffs, dogs, walks } = this.state;
 
     return (
       <div>
         <h1>Dogs</h1>
-        <DogPen dog={dog} />
+        <DogPen dog={dogs} />
         <h1>Staff</h1>
-        <StaffRoom staff={staff} />
+        <StaffRoom staff={staffs} />
         <h1>Walks</h1>
-       <WalkSchedule walk={walk} dog={dog} staff={staff} deleteWalk={this.deleteWalk} />
+       <WalkSchedule walks={walks} dogs={dogs} staffs={staffs} deleteWalks={this.deleteWalk} />
       </div>
     );
   }
