@@ -19,17 +19,19 @@ class WalkSchedule extends React.Component {
       const { staffs } = this.props;
       const { walks } = this.props;
       const { deleteWalks } = this.props;
-      const getMissingProps = dogId => dogs.find(d => walks.dogId === dogs.id) || {};
+      const getMissingDogProps = dogId => dogs.find(d => dogId === d.id) || {};
 
-      console.error(dogs[0]);
+      console.error(dogs);
       const makeWalkCardSchedule = walks.map(schedule => (
+
         <Walk
         key={schedule.id}
         walk={schedule}
-        dog={getMissingProps(schedule.dogId)}
+        dog={getMissingDogProps(schedule.dogId)}
         deleteWalk={this.deleteWalk}
         />
       ));
+
       return (
         <div className="walkCardSchedule-container d-flex flex-wrap">
           {makeWalkCardSchedule}
