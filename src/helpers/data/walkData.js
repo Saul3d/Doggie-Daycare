@@ -16,4 +16,9 @@ const getMyWalks = () => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-export default { getMyWalks };
+const deleteWalk = walkId => axios.delete(`${baseUrl}/${walkId}.json`);
+
+export default {
+  getMyWalks,
+  deleteWalk,
+};
