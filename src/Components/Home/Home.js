@@ -33,7 +33,7 @@ class Home extends React.Component {
 
   deleteWalk = (walkId) => {
     walkData.deleteWalk(walkId)
-      .then(() => this.getMywalks())
+      .then(() => this.getMyWalks())
       .catch(err => console.error('unable to delete', err));
   }
 
