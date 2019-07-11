@@ -18,8 +18,9 @@ class WalkSchedule extends React.Component {
       const { dogs } = this.props;
       const { staffs } = this.props;
       const { walks } = this.props;
-      const { deleteWalks } = this.props;
+      const { deleteWalk } = this.props;
       const getMissingDogProps = dogId => dogs.find(d => dogId === d.id) || {};
+      const getMissingStaffProps = employeeId => staffs.find(s => employeeId === s.id) || {};
 
       console.error(dogs);
       const makeWalkCardSchedule = walks.map(schedule => (
@@ -27,8 +28,9 @@ class WalkSchedule extends React.Component {
         <Walk
         key={schedule.id}
         walk={schedule}
+        staff={getMissingStaffProps(schedule.employeeId)}
         dog={getMissingDogProps(schedule.dogId)}
-        deleteWalk={this.deleteWalk}
+        deleteWalk={deleteWalk}
         />
       ));
 
