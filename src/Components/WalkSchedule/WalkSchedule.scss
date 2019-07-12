@@ -10,6 +10,7 @@
     &:hover{
         cursor:pointer;
         .card{
+            background-color:#f1f1f1;
             .plus-wrapper{
                 background-color:rgb(127, 211, 2);
             }
@@ -23,6 +24,7 @@
         border:1px solid rgba(0,0,0,.125);
         width:300px;
         padding:40px;
+        color:#707070;
         .plus-wrapper{
             display:flex;
             justify-content: center;
