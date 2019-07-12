@@ -36,6 +36,14 @@ class WalkSchedule extends React.Component {
       return (
         <div className="walkCardSchedule-container d-flex flex-wrap">
           {makeWalkCardSchedule}
+          <div className="addWalk col">
+          <div className="card">
+            <div className="plus-wrapper">
+              <h1>+</h1>
+            </div>
+            <h4>Add Walk</h4>
+          </div>
+          </div>
         </div>
       );
     }
