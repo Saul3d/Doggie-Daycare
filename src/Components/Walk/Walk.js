@@ -9,11 +9,11 @@ class Walk extends React.Component {
     walkShape: walkShape.walkShape,
   }
 
-  // deleteMe = (e) => {
-  //   e.preventDefault();
-  //   const { walk, deleteWalk } = this.props;
-  //   deleteWalk(walk.id);
-  // };
+  deleteMe = (e) => {
+    e.preventDefault();
+    const { walk, deleteWalk } = this.props;
+    deleteWalk(walk.id);
+  };
 
   render() {
     const { walk, dog, staff } = this.props;

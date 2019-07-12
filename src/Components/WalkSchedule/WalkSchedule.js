@@ -30,6 +30,7 @@ class WalkSchedule extends React.Component {
         walk={schedule}
         staff={getMissingStaffProps(schedule.employeeId)}
         dog={getMissingDogProps(schedule.dogId)}
+        staff={getMissingStaffProps(schedule.employeeId)}
         deleteWalk={deleteWalk}
         />
       ));

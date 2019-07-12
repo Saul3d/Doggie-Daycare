@@ -10,8 +10,9 @@ class Auth extends React.Component {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider);
   }
+
   render() {
-    return(
+    return (
       <div className="Auth">
         <h1>Auth</h1>
         <button onClick={this.loginClickEvent} className="btn btn-primary">Login with Google</button>

@@ -33,7 +33,7 @@ class Home extends React.Component {
 
   deleteWalk = (walkId) => {
     walkData.deleteWalk(walkId)
-      .then(() => this.getMywalks())
+      .then(() => this.getMyWalks())
       .catch(err => console.error('unable to delete', err));
   }
 
@@ -42,10 +42,10 @@ class Home extends React.Component {
 
     return (
       <div>
-        <h1>Dogs</h1>
-        <DogPen dog={dogs} />
+        {/* <h1>Dogs</h1>
+        <DogPen dogs={dogs} />
         <h1>Staff</h1>
-        <StaffRoom staff={staffs} />
+        <StaffRoom staffs={staffs} /> */}
         <h1>Walks</h1>
        <WalkSchedule walks={walks} dogs={dogs} staffs={staffs} deleteWalks={this.deleteWalk} />
       </div>
