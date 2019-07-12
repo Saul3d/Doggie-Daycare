@@ -24,13 +24,11 @@ class WalkSchedule extends React.Component {
 
       console.error(dogs);
       const makeWalkCardSchedule = walks.map(schedule => (
-
         <Walk
         key={schedule.id}
         walk={schedule}
         staff={getMissingStaffProps(schedule.employeeId)}
         dog={getMissingDogProps(schedule.dogId)}
-        staff={getMissingStaffProps(schedule.employeeId)}
         deleteWalk={deleteWalk}
         />
       ));
