@@ -18,13 +18,14 @@ class Walk extends React.Component {
   render() {
     const { walk, dog, staff } = this.props;
     return (
-      <div className="walk col-3">
+      <div className="walk col">
         <div className="card">
           <div className="card-body">
             <h4>{walk.date}</h4>
             <h6>{staff.name}</h6>
             <h3 className="card-title">{dog.name}</h3>
             <button onClick={this.deleteMe} className="btn btn-danger">Delete</button>
+            <button onClick={this.editMe} className="btn btn-primary">Edit</button>
           </div>
         </div>
       </div>
