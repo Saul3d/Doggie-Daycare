@@ -23,7 +23,7 @@ class Walk extends React.Component {
           <div className="card-body">
             <h4>{walk.date}</h4>
             <h6>{staff.name}</h6>
-            <h3 className="card-title">{dog.name}</h3>  
+            <h3 className="card-title">{dog.name}</h3>
             <button onClick={this.deleteMe} className="btn btn-danger">Delete</button>
           </div>
         </div>
