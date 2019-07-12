@@ -1,7 +1,5 @@
 import React from 'react';
 
-import StaffRoom from '../StaffRoom/StaffRoom';
-import DogPen from '../DogPen/DogPen';
 import WalkSchedule from '../WalkSchedule/WalkSchedule';
 
 import staffData from '../../helpers/data/staffData';
@@ -17,7 +15,7 @@ class Home extends React.Component {
     walks: [],
   }
 
-  componentDidMount() {
+  getMyData = () => {
     staffData.getMyStaff()
       .then(staffs => this.setState({ staffs }))
       .catch(err => console.error('Could not get staff', err));
@@ -31,9 +29,13 @@ class Home extends React.Component {
       .catch(err => console.error('Could not get walks', err));
   }
 
+  componentDidMount() {
+    this.getMyData();
+  }
+
   deleteWalk = (walkId) => {
     walkData.deleteWalk(walkId)
-      .then(() => this.getMyWalks())
+      .then(() => this.getMyData())
       .catch(err => console.error('unable to delete', err));
   }
 
@@ -42,12 +44,8 @@ class Home extends React.Component {
 
     return (
       <div>
-        {/* <h1>Dogs</h1>
-        <DogPen dogs={dogs} />
-        <h1>Staff</h1>
-        <StaffRoom staffs={staffs} /> */}
         <h1>Walks</h1>
-       <WalkSchedule walks={walks} dogs={dogs} staffs={staffs} deleteWalks={this.deleteWalk} />
+       <WalkSchedule walks={walks} dogs={dogs} staffs={staffs} deleteWalk={this.deleteWalk} />
       </div>
     );
   }
