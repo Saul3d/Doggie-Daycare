@@ -1,5 +1,4 @@
 import React from 'react';
-
 import WalkSchedule from '../WalkSchedule/WalkSchedule';
 
 import staffData from '../../helpers/data/staffData';
@@ -45,7 +44,7 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Walks</h1>
-       <WalkSchedule walks={walks} dogs={dogs} staffs={staffs} deleteWalk={this.deleteWalk} />
+        <WalkSchedule walks={walks} dogs={dogs} staffs={staffs} deleteWalk={this.deleteWalk} />
       </div>
     );
   }
