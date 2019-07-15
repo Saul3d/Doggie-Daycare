@@ -30,15 +30,17 @@ class WalkSchedule extends React.Component {
 
   formFieldStringState = (name, e) => {
     const tempWalk = { ...this.state.newWalk };
+    console.error(tempWalk);
     tempWalk[name] = e.target.value;
     this.setState({ newWalk: tempWalk });
   }
 
-  nameChange = e => this.formFieldStringState('dogName', e);
-
   dateChange = e => this.formFieldStringState('date', e);
 
   staffChange = e => this.formFieldStringState('staffName', e);
+
+  nameChange = e => this.formFieldStringState('dogName', e);
+
 
   // formSubmit = (e) => {
   //   e.preventDefault();

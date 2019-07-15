@@ -8,6 +8,9 @@ import {
 } from 'reactstrap';
 
 class NewWalk extends React.Component {
+// onTodoChange = (value) => {
+//   this.setState({ name: value });
+// };
   render() {
     return (
       <div>
@@ -40,7 +43,7 @@ class NewWalk extends React.Component {
                 id="exampleDogNameInput"
                 rows="3"
                 // value={this.props.name}
-                onChange={this.props.nameChange} />
+                onChange={this.props.nameChange}/>
             </div>
           </form>
           </ModalBody>
