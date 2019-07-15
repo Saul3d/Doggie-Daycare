@@ -1,15 +1,21 @@
 import React from 'react';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
 
 import PropTypes from 'prop-types';
 import NewWalk from '../NewWalk/NewWalk';
 
 import walkShape from '../../helpers/propz/walkShape';
-// import Dogs from '../Dog/Dog';
-// import Staff from '../Staff/Staff';
 import Walk from '../Walk/Walk';
-
+// import walkData from '../../helpers/data/walkData';
 
 import './WalkSchedule.scss';
+
+const defaultWalk = {
+  date: '',
+  staffName: '',
+  dogName: '',
+};
 
 class WalkSchedule extends React.Component {
   constructor(props) {
@@ -19,7 +25,32 @@ class WalkSchedule extends React.Component {
 
   state = {
     showModal: false,
+    newWalk: defaultWalk,
   }
+
+  formFieldStringState = (name, e) => {
+    const tempWalk = { ...this.state.newWalk };
+    console.error(tempWalk);
+    tempWalk[name] = e.target.value;
+    this.setState({ newWalk: tempWalk });
+  }
+
+  dateChange = e => this.formFieldStringState('date', e);
+
+  staffChange = e => this.formFieldStringState('staffName', e);
+
+  nameChange = e => this.formFieldStringState('dogName', e);
+
+
+  // formSubmit = (e) => {
+  //   e.preventDefault();
+  //   const saveMe = { ...this.state.newWalk };
+  //   saveMe.uid = firebase.auth().currentUser.uid;
+  //   console.error('things to save ', saveMe);
+  //   walkData.postWalk(saveMe)
+  //     .then(() => this.props.history.push('/home'))
+  //     .catch(err => console.error('unable to save', err));
+  // }
 
   static propTypes = {
     walkPenShape: PropTypes.arrayOf(walkShape.walkShape),
@@ -46,6 +77,7 @@ class WalkSchedule extends React.Component {
     const { staffs } = this.props;
     const { walks } = this.props;
     const { deleteWalk } = this.props;
+    const { newWalk } = this.state;
     const getMissingDogProps = dogId => dogs.find(d => dogId === d.id) || {};
     const getMissingStaffProps = employeeId => staffs.find(s => employeeId === s.id) || {};
 
@@ -63,7 +95,15 @@ class WalkSchedule extends React.Component {
     return (
       <div className="walkCardSchedule-container d-flex flex-wrap">
         {makeWalkCardSchedule}
-        <NewWalk isOpen={this.state.showModal} closeModal={this.closeModal}/>
+        <NewWalk
+          isOpen={this.state.showModal}
+          closeModal={this.closeModal}
+          newWalk={newWalk}
+          formFieldStringState={this.formFieldStringState}
+          nameChange={this.nameChange}
+          dataChange={this.dateChange}
+          staffChange={this.staffChange}
+        />
         <div className="addWalk col" onClick={this.displayModal}>
         <div className="card">
           <div className="plus-wrapper">
