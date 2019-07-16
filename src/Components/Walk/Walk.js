@@ -15,6 +15,12 @@ class Walk extends React.Component {
     deleteWalk(walk.id);
   };
 
+  editMe = (e) => {
+    e.preventDefault();
+    const { walk, editWalk } = this.props;
+    editWalk(walk);
+  };
+
   render() {
     const { walk, dog, staff } = this.props;
     return (
