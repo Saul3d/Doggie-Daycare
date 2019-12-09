@@ -33,7 +33,7 @@ class DogPen extends React.Component {
     ));
     return (
       <div className="dogPen d-flex flex-wrap">
-        <h1>Hello DogPen</h1>
+        <h1>Doggies</h1>
         { makeDog }
         {/* {console.error(dogs, 'calling this from dogpen')} */}
       </div>
