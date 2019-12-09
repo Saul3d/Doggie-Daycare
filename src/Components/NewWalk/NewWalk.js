@@ -37,7 +37,7 @@ class NewWalk extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Modal isOpen={this.props.isOpen} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Schedule A Walk</ModalHeader>
           <ModalBody>
@@ -95,7 +95,7 @@ class NewWalk extends React.Component {
             <Button color="secondary" onClick={this.props.closeModal}>Cancel</Button>
           </ModalFooter>
         </Modal>
-      </div>
+      </>
     );
   }
 }

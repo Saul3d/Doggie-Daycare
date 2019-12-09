@@ -137,7 +137,7 @@ class WalkSchedule extends React.Component {
         />
         <div className="addWalk col" onClick={this.displayModal}>
           <div className="card">
-            <div className="plus-wrapper">
+            <div className="plus-wrapper card-body">
               <h1>+</h1>
             </div>
             <h4>Add Walk</h4>

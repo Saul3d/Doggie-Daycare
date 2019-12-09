@@ -30,6 +30,7 @@ class StaffRoom extends React.Component {
 
     return (
       <div className="staffRoom d-flex flex-wrap">
+        <h1>Staff</h1>
         { makeStaff }
       </div>
     );
